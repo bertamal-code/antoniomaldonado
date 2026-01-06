@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resultado Final</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="menunono.css">
+<link rel="stylesheet" href="nonofotosprincipal.css">
+</head>
+
+<body>
+
+<header>
+
+    <!-- Botón hamburguesa (solo móvil) -->
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Menú -->
+    <nav id="menu">
+        <a href="#" class="active">SELECTED WORK</a>
+        <a href="#">BOOKS</a>
+        <a href="#">ABOUT</a>
+    </nav>
+
+    <!-- Logo -->
+    <img class="logo" src="logonono.png" alt="Logo">
+
+</header>
+
+<div class="collage-container">
+
+    <!-- Columna 1 -->
+    <div class="column first">
+
+        <!-- KITESURF → enlaza a kitesurf.html -->
+        <a href="kitesurf.html" style="text-decoration: none;">
+            <div class="image-container">
+                <img src="imagenesprincipal/KITESURF.jpg" alt="KITESURF">
+                <div class="overlay"><span>KITE SURF</span></div>
+            </div>
+        </a>
+
+        <div class="image-container">
+            <img src="imagenesprincipal/roma.jpeg" alt="ROMA">
+            <div class="overlay"><span>ROMA</span></div>
+        </div>
+
+        <div class="image-container">
+            <img src="imagenesprincipal/londres.jpeg" alt="LONDRES">
+            <div class="overlay"><span>LONDRES</span></div>
+        </div>
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="column second">
+        <div class="image-container">
+            <img src="imagenesprincipal/surf.jpeg" alt="SURF">
+            <div class="overlay"><span>SURF</span></div>
+        </div>
+
+        <div class="image-container">
+            <img src="imagenesprincipal/SURFINVIERNO.jpeg" alt="SURF INVIERNO">
+            <div class="overlay"><span>SURF INVIERNO</span></div>
+        </div>
+
+        <div class="image-container">
+            <img src="imagenesprincipal/amsterdam.jpeg" alt="ÁMSTERDAM">
+            <div class="overlay"><span>ÁMSTERDAM</span></div>
+        </div>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="column third">
+        <div class="image-container">
+            <img src="imagenesprincipal/WINGFOIL.jpeg" alt="WING FOIL">
+            <div class="overlay"><span>WING FOIL I</span></div>
+        </div>
+
+        <div class="image-container">
+            <img src="imagenesprincipal/BARRIDOS.jpeg" alt="WING FOIL II">
+            <div class="overlay"><span>WING FOIL II</span></div>
+        </div>
+    </div>
+
+    <!-- Columna 4 -->
+    <div class="column fourth">
+        <div class="image-container">
+            <img src="imagenesprincipal/awa.jpeg" alt="AWA">
+            <div class="overlay"><span>AWA</span></div>
+        </div>
+
+        <div class="image-container">
+            <img src="imagenesprincipal/TARIFA.jpeg" alt="TARIFA">
+            <div class="overlay"><span>TARIFA</span></div>
+        </div>
+
+        <div class="image-container">
+            <img src="imagenesprincipal/GRANADA.jpeg" alt="GRANADA">
+            <div class="overlay"><span>GRANADA</span></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("menu");
+    const links = menu.querySelectorAll("a");
+
+    // Abrir / cerrar menú móvil
+    hamburger.addEventListener("click", () => {
+        menu.classList.toggle("open");
+        hamburger.classList.toggle("active");
+    });
+
+    // Enlace activo
+    links.forEach(link => {
+        link.addEventListener("click", () => {
+            links.forEach(l => l.classList.remove("active"));
+            link.classList.add("active");
+        });
+    });
+</script>
+
+</body>
+</html>
+

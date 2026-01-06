@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Arual';
+    src: url('..webucm/Arual.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arual","Helvetica Neue",sans-serif;
+    letter-spacing: 2px;
+    background: #fff;
+}
+
+/* ===== GRID CONTENEDOR ===== */
+.collage-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 200px 20px;
+}
+
+/* ===== CONTENEDOR DE IMÁGENES ===== */
+.image-container {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Estilo común para ambas imágenes */
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Imagen principal */
+.img-main {
+    position: relative;
+    z-index: 1;
+}
+
+/* Imagen hover */
+.img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+}
+
+/* Hover: cambio de imagen */
+.image-container:hover .img-hover {
+    opacity: 1;
+}
+
+.image-container:hover .img-main {
+    opacity: 0;
+}
+
+/* Zoom ligero elegante */
+.image-container:hover img {
+    transform: scale(1.03);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .collage-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 120px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .collage-container {
+        grid-template-columns: 1fr;
+        padding: 80px 20px;
+    }
+}

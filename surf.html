@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería con Hover</title>
+
+    <link rel="stylesheet" href="menunono.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: 'Arual';
+            src: url('../webucm/Arual.ttf') format('truetype');
+        }
+
+        body {
+            font-family: "Arual","Helvetica Neue",sans-serif;
+            letter-spacing: 1px;
+            background: #fff;
+        }
+
+        /* ===== HEADER DESKTOP ===== */
+        header {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 30px;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .menu-text {
+            display: none;
+            font-size: 18px;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+       .logo {
+        height: 100px;
+        object-fit: contain;
+    }
+       .logo {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.logo:hover,
+.logo:active {
+    transform: scale(1.1);
+}
+
+        /* ===== MÓVIL ===== */
+        @media (max-width: 768px) {
+
+            header {
+                justify-content: space-between;
+            }
+
+            .menu-text {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 55px;
+                left: 0;
+                width: auto;
+                height: auto;
+                background: white;
+                flex-direction: column;
+                padding: 8px 0;
+            }
+
+            nav.open {
+                display: inline-flex;
+            }
+
+            nav a {
+                padding: 6px 20px;
+                font-size: 14px;
+            }
+        }
+
+        /* ===== RESTO DE TU CSS (SIN CAMBIOS) ===== */
+
+        .container {
+            display: flex;
+        }
+
+        .left-panel {
+            width: 30%;
+            padding: 150px 60px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background: white;
+            z-index: 10;
+        }
+
+        .left-panel h1 {
+            font-size: 30px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .left-panel p {
+            font-size: 12px;
+            color: rgba(0,0,0,0.5);
+        }
+
+        .right-panel {
+            margin-left: 15%;
+            width: 75%;
+            padding-right: 40px;
+            padding-top: 40px;
+        }
+
+        .image-column img {
+            width: 60%;
+            margin: 0 auto 20px auto;
+            display: block;
+        }
+
+        .arrow-container {
+            position: fixed;
+            top: 30%;
+            right: 50px;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .arrow {
+            font-size: 55px;
+            font-weight: 100;
+            text-decoration: none;
+            color: rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 900px) {
+
+            .container {
+                flex-direction: column;
+            }
+
+            .left-panel {
+                position: relative;
+                width: 100%;
+                padding: 40px 20px;
+            }
+
+            .right-panel {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+
+            .image-column img {
+                width: 100%;
+            }
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(255,255,255,0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <!-- MENU (solo móvil) -->
+    <div class="menu-text" id="menuToggle">MENU</div>
+
+     <!-- MENÚ -->
+    <nav id="menu">
+        <a href="resultadofinal.html" class="active">SELECTED WORK</a>
+        <a href="books.html">BOOKS</a>
+        <a href="aboutnono.html">ABOUT</a>
+    </nav>
+
+    <!-- LOGO -->
+    <a href="resultadofinal.html">
+        <img class="logo" src="logonono.png" alt="Logo">
+    </a>
+
+</header>
+
+<div class="arrow-container">
+    <a href="kitesurf.html" class="arrow">‹</a>
+    <a href="wingfoilpantano.html" class="arrow">›</a>
+</div>
+
+<div class="container">
+
+    <div class="left-panel">
+        <h1>Surf</h1>
+        <p>Fotografias realizadas por <strong>Antonio Maldonado</strong></p>
+    </div>
+     <div id="lightbox" class="lightbox">
+    <img id="lightbox-img" src="" alt="">
+</div>
+
+    <div class="right-panel">
+        <div class="image-column">
+            <!-- tus imágenes, sin cambios -->
+            <img src="imagenesprincipal/surf/_51A3907.jpg" class="zoomable">
+            <img src="imagenesprincipal/surf/_51A3912.jpg" class="zoomable">
+            <img src="imagenesprincipal/surf/_51A4021.jpg" class="zoomable">
+            <img src="imagenesprincipal/surf/_51A4113.jpg" class="zoomable">
+            <img src="imagenesprincipal/surf/_51A4294.jpg" class="zoomable">
+            <img src="imagenesprincipal/surf/_51A4396.jpg" class="zoomable">
+        </div>
+    </div>
+</div>
+
+<div class="overlay" id="overlay">
+    <img id="overlay-img">
+</div>
+
+<script>
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+document.querySelectorAll(".zoomable").forEach(img => {
+    img.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        lightboxImg.src = img.src;
+        lightbox.classList.add("active");
+    });
+});
+
+// Cerrar al hacer click fuera
+lightbox.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+});
+
+// Cerrar con ESC
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        lightbox.classList.remove("active");
+    }
+});
+const menuToggle = document.getElementById("menuToggle");
+const menu = document.getElementById("menu");
+
+// Abrir / cerrar al click en MENU
+menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+});
+
+// Cerrar al hacer click en un enlace
+menu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+        menu.classList.remove("open");
+    });
+});
+
+// Cerrar al hacer click fuera
+document.addEventListener("click", () => {
+    menu.classList.remove("open");
+});
+
+// Evitar que click dentro del menú lo cierre
+menu.addEventListener("click", (e) => {
+    e.stopPropagation();
+});
+</script>
+
+
+</body>
+</html>
